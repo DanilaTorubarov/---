@@ -8,12 +8,10 @@ d={}
 for i in range(n):
     s=f.readline().strip().split()
     d[s[0]]=int(s[1])
-print(d)
 e={}
 for i in range(a-n-1):
     s=f.readline().strip()
     e[s]=e.get(s,0)+1
-print(e)
 b=[]
 for i in range(n):
     b.append({})
@@ -25,9 +23,10 @@ for i in g:
         h+=1
         s0=i.split()[0]
     b[h][i.split()[1]]=e[i]
-print(b)
 j={}
-
+print(b,d,e, sep="\n")
 for i in range(len(d)):
+    print(len(d))
     j[sorted(d)[i]]=sorted(b[i],key=lambda x:b[i][x])[len(d)-1]
-    print(str(j[b[i]])+" "+str(b[i]),file=o)
+    print(j)
+    print(str(j[sorted(d)[i]])+" "+str(d[sorted(d)[i]]),file=o)
