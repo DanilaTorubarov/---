@@ -1,6 +1,6 @@
 import numpy as np
 f=open('input.txt')
-f1=open('output.txt','w')
+o=open('output.txt','w')
 a=len(f.readlines())
 f.seek(0)
 n=int(f.readline().strip())
@@ -29,4 +29,5 @@ print(b)
 j={}
 
 for i in range(len(d)):
-    j[sorted(d)[i]]=sorted(b[i])
+    j[sorted(d)[i]]=sorted(b[i],key=lambda x:b[i][x])[len(d)-1]
+    print(str(j[b[i]])+" "+str(b[i]),file=o)
