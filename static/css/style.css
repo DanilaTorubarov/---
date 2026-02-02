@@ -1,0 +1,353 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, #8B4513 0%, #D2B48C 50%, #228B22 100%);
+    min-height: 100vh;
+    color: #2F1B14;
+}
+
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.mushroom-bg {
+    position: fixed;
+    top: 20%;
+    right: -10%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, #D2691E 20%, transparent 50%);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    opacity: 0.3;
+    z-index: -1;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 20px 0;
+}
+
+.header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    background: linear-gradient(45deg, #D2691E, #8B4513);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.header p {
+    color: #654321;
+    font-size: 1.1em;
+}
+
+.login-main, .cabinet-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.login-card h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #8B4513;
+    font-size: 1.8em;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #654321;
+    font-weight: 500;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid #D2B48C;
+    border-radius: 12px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: rgba(255,255,255,0.8);
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #8B4513;
+    box-shadow: 0 0 0 3px rgba(139, 69, 19, 0.1);
+}
+
+.btn-primary, .btn-secondary, .btn-logout {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, #D2691E, #8B4513);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(139, 69, 19, 0.3);
+}
+
+.btn-secondary {
+    background: #228B22;
+    color: white;
+    margin-right: 10px;
+}
+
+.btn-logout {
+    background: #DC143C;
+    color: white;
+}
+
+.register-link {
+    text-align: center;
+    margin-top: 20px;
+    color: #654321;
+}
+
+.register-link a {
+    color: #8B4513;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+/* Личный кабинет */
+.cabinet-nav {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.profile-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    padding: 40px;
+    text-align: center;
+    margin-bottom: 30px;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 25px;
+    padding-top: 25px;
+    border-top: 2px dashed #D2B48C;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-size: 2.5em;
+    font-weight: bold;
+    background: linear-gradient(45deg, #D2691E, #8B4513);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.recent-analyses {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    padding: 30px;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.recent-analyses h3 {
+    margin-bottom: 20px;
+    color: #8B4513;
+}
+
+.analysis-item {
+    display: flex;
+    gap: 15px;
+    padding: 20px 0;
+    border-bottom: 1px solid #D2B48C;
+}
+
+.analysis-item:last-child {
+    border-bottom: none;
+}
+
+.analysis-photo {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    flex-shrink: 0;
+}
+
+.analysis-info h4 {
+    margin-bottom: 5px;
+    color: #2F1B14;
+}
+
+.analysis-info p {
+    color: #654321;
+    margin-bottom: 5px;
+}
+
+.date {
+    color: #8B4513;
+    font-size: 0.9em;
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .header h1 {
+        font-size: 2em;
+    }
+    
+    .stats {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .cabinet-nav {
+        flex-direction: column;
+    }
+}
+
+/* Токены и баланс */
+.tokens-section {
+    background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,165,0,0.1));
+    border: 2px solid rgba(255,215,0,0.3);
+    border-radius: 16px;
+    padding: 25px;
+    margin: 25px 0;
+    text-align: center;
+}
+
+.tokens-section h3 {
+    margin-bottom: 15px;
+    color: #DAA520;
+    font-size: 1.3em;
+}
+
+.tokens-display {
+    margin-bottom: 15px;
+}
+
+.tokens-number {
+    display: inline-block;
+    font-size: 3.5em;
+    font-weight: bold;
+    background: linear-gradient(45deg, #FFD700, #FFA500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-right: 10px;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from { filter: drop-shadow(0 0 5px rgba(255,215,0,0.5)); }
+    to { filter: drop-shadow(0 0 15px rgba(255,215,0,0.8)); }
+}
+
+.tokens-label {
+    font-size: 1.2em;
+    color: #8B4513;
+    font-weight: 500;
+}
+
+.tokens-section small {
+    display: block;
+    color: #654321;
+    margin-top: 5px;
+    font-size: 0.9em;
+}
+
+.btn-topup {
+    background: linear-gradient(45deg, #FFD700, #FFA500);
+    color: #2F1B14;
+    font-weight: 700;
+    font-size: 1.1em;
+    border: 2px solid rgba(255,215,0,0.5);
+    box-shadow: 0 4px 15px rgba(255,215,0,0.3);
+}
+
+.btn-topup:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255,215,0,0.4);
+}
+
+.token-cost {
+    background: rgba(255,215,0,0.2);
+    color: #DAA520;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.85em;
+    font-weight: 500;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 480px) {
+    .tokens-number {
+        font-size: 2.8em;
+    }
+    
+    .tokens-section {
+        padding: 20px;
+    }
+}
